@@ -5,7 +5,18 @@
     <title>Angular Seed</title>
 </head>
 <body>
-<h1>Angular Seed</h1>
+<header id="app-header">
+    <div ng-include="'partial/user-header.html'"></div>
+</header>
+
+<div id='app-content'>
+    <div class='' ng-view>
+    </div>
+
+    <div class='' ng-controller="">
+        <div ng-include="'partial/user-friends.html'"></div>
+    </div>
+</div>
 
 <script src="lib/angular/angular.js"></script>
 <script src="lib/angular/angular-route.js"></script>
