@@ -15,8 +15,8 @@ var socialNetworkApp = angular.module('socialNetworkApp', [])
             });
         $routeProvider
             .when('/register', {
-                templateUrl: 'templates/public/register.html'
-                //controller: 'LoadAllPosts'
+                templateUrl: 'templates/public/register.html',
+                controller: 'RegisterController'
             });
         $routeProvider
             .when('/users/:username', {

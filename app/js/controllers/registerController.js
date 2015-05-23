@@ -1,6 +1,6 @@
 'use strict';
 
-socialNetworkApp.controller('registerController', function(){
+socialNetworkApp.controller('RegisterController', function(){
     // TODO notification
     // TODO login and redirecting
 });
