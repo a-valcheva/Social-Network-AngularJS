@@ -1,3 +1,5 @@
+'use strict';
+
 socialNetworkApp('LoginController', function(){
-   // TODO notification
+   // TODO notification and redirecting
 });
