@@ -1,12 +1,12 @@
 'use strict';
 
-socialNetworkApp.factory('authenticationService', function(BASE_URL, requester) {
+socialNetworkApp.factory('authenticationService', function(requester) {
     function login(){
-        requester.authenticationRequest('POST', BASE_URL + '/api/user/login');
+        requester.authenticationRequest('POST', '/api/user/login');
     }
 
     function register(){
-        requester.authenticationRequest('POST', BASE_URL + '/api/user/register');
+        requester.authenticationRequest('POST', '/api/user/register');
     }
 
     function logout(){

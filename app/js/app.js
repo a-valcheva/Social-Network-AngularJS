@@ -10,8 +10,8 @@ var socialNetworkApp = angular.module('socialNetworkApp', [])
             });
         $routeProvider
             .when('/login', {
-                templateUrl: 'templates/public/login.html'
-                //controller: 'LoadAllPosts'
+                templateUrl: 'templates/public/login.html',
+                controller: 'LoginController'
             });
         $routeProvider
             .when('/register', {
