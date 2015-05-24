@@ -9,13 +9,31 @@ socialNetworkApp.factory('authenticationService', function(requester) {
         requester.authenticationRequest('POST', '/api/user/register');
     }
 
+    function getCurrentUser() {
+        var userObject = sessionStorage['currentUser'];
+        if (userObject) {
+            return JSON.parse(sessionStorage['currentUser']);
+        }
+    }
+
     function logout(){
         delete sessionStorage['currentUser'];
+    }
+
+    function getAuthHeaders() {
+        var headers = {};
+        var currentUser = this.getCurrentUser();
+        if (currentUser) {
+            headers['Authorization'] = 'Bearer ' + currentUser.access_token;
+        }
+        return headers;
     }
 
     return{
         login : login,
         register : register,
-        logout : logout
+        logout : logout,
+        getCurrentUser : getCurrentUser,
+        getAuthHeaders : getAuthHeaders
     }
 });

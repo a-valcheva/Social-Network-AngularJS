@@ -7,7 +7,7 @@ socialNetworkApp.factory('requester', function requester($q, $http) {
         var request = {
             method: method,
             url: 'BASE_URL' + url,
-            headers: headers || null,
+            headers: headers,
             data: data || null
         };
 
@@ -21,8 +21,26 @@ socialNetworkApp.factory('requester', function requester($q, $http) {
         return deferred.promise;
     }
 
+    function simpleRequest(method, url, headers, data){
+        var deferred = $q.defer();
+
+        $http({
+            method: method,
+            url: 'BASE_URL' + url,
+            headers: headers,
+            data: data || null
+        })
+            .success(function(data){
+                deferred.resolve(data);
+            })
+            .error(deferred.reject);
+
+        return deferred.promise;
+    }
+
     return{
-        authenticationRequest : authenticationRequest
+        authenticationRequest : authenticationRequest,
+        simpleRequest : simpleRequest
     };
         /*return function (method, url, headers, data) {
             var deferred = $q.defer();
